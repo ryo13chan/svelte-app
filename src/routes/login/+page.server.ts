@@ -1,5 +1,6 @@
 import { loginSchema } from '$lib/schemas/login'
 import { fail } from '@sveltejs/kit'
+import { redirect, setFlash } from 'sveltekit-flash-message/server'
 import { message, superValidate } from 'sveltekit-superforms'
 import { zod } from 'sveltekit-superforms/adapters'
 import type { Actions, PageServerLoad } from './$types'
@@ -19,6 +20,10 @@ export const actions: Actions = {
 
     // ログイン処理
 
-    return message(form, 'ログインしました')
+    return redirect(
+      '/',
+      { message: 'ログインしました', type: 'success' },
+      event,
+    )
   },
 }
