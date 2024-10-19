@@ -29,7 +29,7 @@ const { form: formData, enhance } = form
             <Form.Label>メールアドレス</Form.Label>
             <Input {...attrs} bind:value={$formData.email} />
           </Form.Control>
-          <Form.Description>メールアドレスの形式</Form.Description>
+          <Form.Description>test@test.com と入力してください</Form.Description>
           <Form.FieldErrors />
         </Form.Field>
         <Form.Field {form} name="password">
@@ -37,7 +37,7 @@ const { form: formData, enhance } = form
             <Form.Label>パスワード</Form.Label>
             <Input {...attrs} bind:value={$formData.password} type="password" />
           </Form.Control>
-          <Form.Description>8文字以上</Form.Description>
+          <Form.Description>password と入力してください</Form.Description>
           <Form.FieldErrors />
         </Form.Field>
       </div>

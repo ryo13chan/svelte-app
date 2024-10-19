@@ -1,7 +1,7 @@
 import { loginSchema } from '$lib/schemas/login'
 import { fail } from '@sveltejs/kit'
 import { redirect, setFlash } from 'sveltekit-flash-message/server'
-import { message, superValidate } from 'sveltekit-superforms'
+import { superValidate } from 'sveltekit-superforms'
 import { zod } from 'sveltekit-superforms/adapters'
 import type { Actions, PageServerLoad } from './$types'
 
@@ -19,6 +19,21 @@ export const actions: Actions = {
     }
 
     // ログイン処理
+
+    if (
+      form.data.email !== 'test@test.com' ||
+      form.data.password !== 'password'
+    ) {
+      setFlash({ message: 'ログインに失敗しました', type: 'error' }, event)
+      return fail(400, { form })
+    }
+
+    event.cookies.set('logged_in', 'true', {
+      httpOnly: true,
+      maxAge: 60 * 60 * 24 * 365,
+      secure: true,
+      path: '/',
+    })
 
     return redirect(
       '/',
