@@ -24,5 +24,5 @@ $effect(() => {
 </script>
 
 
-<Toaster position="top-right" richColors/>
+<Toaster position="top-right" />
 {@render children()}
