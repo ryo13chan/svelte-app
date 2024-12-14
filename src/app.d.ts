@@ -6,6 +6,8 @@ declare global {
     // interface Locals {}
     interface PageData {
       flash?: { type: 'success' | 'error'; message: string }
+      breadcrumbs?: { title: string; href: string }[]
+      title?: string
     }
     // interface PageState {}
     // interface Platform {}

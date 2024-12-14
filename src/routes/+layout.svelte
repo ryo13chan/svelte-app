@@ -7,6 +7,10 @@ import '../app.css'
 
 let { children } = $props()
 
+const title = $derived(
+  `${$page.data.title ? `${$page.data.title} | ` : ''}Svelte App`,
+)
+
 const flash = getFlash(page)
 $effect(() => {
   if (!$flash) return
@@ -23,6 +27,8 @@ $effect(() => {
 })
 </script>
 
-
+<svelte:head>
+	<title>{title}</title>
+</svelte:head>
 <Toaster position="top-right" />
 {@render children()}
