@@ -4,6 +4,7 @@ import * as Table from '$lib/components/ui/table'
 import type { User } from '$lib/types/user'
 import Info from 'lucide-svelte/icons/info'
 import Trash from 'lucide-svelte/icons/trash'
+import UserDeleteDialog from './UserDeleteDialog.svelte'
 
 let { users }: { users: User[] } = $props()
 </script>
@@ -26,14 +27,10 @@ let { users }: { users: User[] } = $props()
         <Table.Cell>{user.username}</Table.Cell>
         <Table.Cell>{user.email}</Table.Cell>
         <Table.Cell>
-          <Button >
-            <Info class="mr-2 h-4 w-4" />
-            Details
+          <Button>
+            <Info class="mr-2 w-4" />Details
           </Button>
-          <Button variant="destructive">
-            <Trash class="mr-2 h-4 w-4" />
-            Delete
-          </Button>
+          <UserDeleteDialog id={user.id} />
         </Table.Cell>
       </Table.Row>
     {/each}
