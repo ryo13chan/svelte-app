@@ -24,7 +24,7 @@ export const actions: Actions = {
       form.data.email !== 'test@test.com' ||
       form.data.password !== 'password'
     ) {
-      setFlash({ message: 'ログインに失敗しました', type: 'error' }, event)
+      setFlash({ message: 'Login failed.', type: 'error' }, event)
       return fail(400, { form })
     }
 
@@ -37,7 +37,7 @@ export const actions: Actions = {
 
     return redirect(
       '/',
-      { message: 'ログインしました', type: 'success' },
+      { message: 'Login successful.', type: 'success' },
       event,
     )
   },
