@@ -27,7 +27,7 @@ let { users }: { users: User[] } = $props()
         <Table.Cell>{user.username}</Table.Cell>
         <Table.Cell>{user.email}</Table.Cell>
         <Table.Cell>
-          <Button>
+          <Button href={`/user/${user.id}`}>
             <Info class="mr-2 w-4" />Details
           </Button>
           <UserDeleteDialog id={user.id} />
