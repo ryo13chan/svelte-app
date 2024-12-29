@@ -11,6 +11,16 @@ export const get = async (path: string, params = {}, headers = {}) => {
     },
   })
 }
+export const post = async (path: string, body = {}, headers = {}) => {
+  return fetch(`${baseUrl}/${path}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      ...headers,
+    },
+    body: JSON.stringify(body),
+  })
+}
 export const del = async (path: string, params = {}, headers = {}) => {
   const query = new URLSearchParams(params)
 

@@ -9,7 +9,7 @@ const menus = [
 ]
 </script>
 
-<div class="min-h-[calc(100vh-4rem)] min-w-64 border-r">
+<div class="min-h-[calc(100vh-4rem)] min-w-48 border-r">
 	<ul class="sticky top-20 px-4">
 		{#each menus as menu}
 			<li class="my-4">
