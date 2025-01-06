@@ -30,5 +30,5 @@ $effect(() => {
 <svelte:head>
 	<title>{title}</title>
 </svelte:head>
-<Toaster position="top-right"  />
+<Toaster position="top-right" richColors />
 {@render children()}

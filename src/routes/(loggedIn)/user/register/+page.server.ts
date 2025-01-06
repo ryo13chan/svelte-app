@@ -27,8 +27,29 @@ export const actions: Actions = {
       return fail(400, { form })
     }
 
-    console.log(form.data)
-    const response = await post('users', form.data)
+    const body = {
+      name: form.data.name,
+      username: form.data.username,
+      email: form.data.email,
+      address: {
+        street: form.data.street,
+        suite: form.data.suite,
+        city: form.data.city,
+        zipcode: form.data.zipcode,
+        geo: {
+          lat: form.data.lat,
+          lng: form.data.lng,
+        },
+      },
+      phone: form.data.phone,
+      website: form.data.website,
+      company: {
+        name: form.data.companyName,
+        catchPhrase: form.data.companyCatchPhrase,
+        bs: form.data.companyBs,
+      },
+    }
+    const response = await post('users', body)
 
     if (response.status !== 201) {
       setFlash({ message: 'User registration failed.', type: 'error' }, event)
