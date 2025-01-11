@@ -4,7 +4,6 @@ import { page } from '$app/stores'
 const pathname = $derived($page.url.pathname)
 const menus = [
   { key: 'user', label: 'User', href: '/user' },
-  { key: 'post', label: 'Post', href: '/post' },
   { key: 'logout', label: 'Logout', href: '/logout' },
 ]
 </script>
