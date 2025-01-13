@@ -1,10 +1,17 @@
 import { get } from '$lib/api'
+import type { Todo } from '$lib/types/todo'
 import type { User } from '$lib/types/user'
 import type { PageServerLoad } from './$types'
 
 export const load: PageServerLoad = async ({ params }) => {
-  const response = await get(`users/${params.id}`)
-  const user: User = await response.json()
+  const userResponse = await get(`users/${params.id}`)
+  const user: User = await userResponse.json()
+
+  const userTodosResponse = await get(`users/${params.id}/todos`)
+  const todos: Todo[] = await userTodosResponse.json()
+
+  const userPostsResponse = await get(`users/${params.id}/posts`)
+  const posts = await userPostsResponse.json()
 
   return {
     breadcrumbs: [
@@ -14,5 +21,7 @@ export const load: PageServerLoad = async ({ params }) => {
     ],
     title: user.name,
     user,
+    todos,
+    posts,
   }
 }
